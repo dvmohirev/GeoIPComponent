@@ -1,0 +1,10 @@
+.error_text {
+    color: red;
+    display: none;
+}
+.additional_margin {
+    margin-top: 25px;
+}
+.hide_data {
+    display: none;
+}
