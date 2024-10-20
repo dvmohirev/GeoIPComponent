@@ -12,7 +12,8 @@
   Иначе найденные данные в HL-блоке выводятся на странице.<br>
 </p>
 <p>
-  Выполняется валидация поля через JS
+  Выполняется валидация поля через JS.<br>
+  Компонент разработан на основе стандартного компонента form.result.new
 </p>
 <br>
 <h2>Применение</h2>
@@ -21,11 +22,38 @@
   Если папка local/components уже есть на сайте, то скопируйте папку <b>testwork</b> в папку local/components
 </p>
 <p>
+  Создайте веб-форму с Символьным идентификатором "GET_GEOIP_DATA".<br>
+  Создайте вопрос в веб-форме с Символьным идентификатором "IP_ADDRESS", заголовком IP-адрес, ответом - "Текст"
+</p>
+<p>
   Для вызова компонента вставьте код:
 </p>
-<code>$APPLICATION->IncludeComponent(
-    "testwork:geoip.request",
-    ".default",
-    array()
-);
+<code><?$APPLICATION->IncludeComponent(
+	"testwork:form.result.new",
+	"get_geoip_data", 
+	array(
+		"AJAX_MODE" => "Y",
+		"AJAX_OPTION_SHADOW" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"CACHE_TIME" => "3600",
+		"CACHE_TYPE" => "A",
+		"CHAIN_ITEM_LINK" => "",
+		"CHAIN_ITEM_TEXT" => "",
+		"EDIT_URL" => "",
+		"IGNORE_CUSTOM_TEMPLATE" => "N",
+		"LIST_URL" => "",
+		"SEF_MODE" => "N",
+		"SUCCESS_URL" => "",
+		"USE_EXTENDED_ERRORS" => "N",
+		"WEB_FORM_ID" => "1",
+		"COMPONENT_TEMPLATE" => "get_geoip_data",
+		"VARIABLE_ALIASES" => array(
+			"WEB_FORM_ID" => "WEB_FORM_ID",
+			"RESULT_ID" => "RESULT_ID",
+		)
+	),
+	false
+);?>
 </code>
